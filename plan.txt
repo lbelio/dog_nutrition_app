@@ -1,0 +1,29 @@
+1. Start by planning the layout and functionality of the 
+calculator. This will include deciding on the form fields 
+and the data that will be collected from the user, as well
+as the calculations that will be performed to determine the 
+nutritional needs of the pet.
+
+    Middle of page main subject.
+    Call it calculator or something
+
+    underneath: a form.
+    first entry should be one where you can type but recommendations appear
+    eg: bost..... : suggestions pop up:
+
+    second entry: dog's weight: toggle button for lbs and kgs.
+     
+    third entry: dogs age in years. (if puppy 0.5 etc)
+
+    4th entry: activity level? maybe 4 buttons: 
+    light, medium, very active
+
+    submit button
+
+
+Here would be a loading screen of some kind while API is being accessed.
+
+new page for info or overlay? 
+
+CSS:
+
