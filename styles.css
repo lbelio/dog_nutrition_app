@@ -88,7 +88,7 @@ button {
   border-radius: 0.5rem;
 }
 
-/* Toggle button start reference:  https://www.w3schools.com/howto/howto_css_switch.asp*/
+/* Toggle button start. reference:  https://www.w3schools.com/howto/howto_css_switch.asp*/
 .toggle {
   position: relative;
   display: inline-block;
@@ -133,6 +133,16 @@ input:checked + .toggle_switch {
 
 input:focus + .toggle_switch{
   box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .toggle_switch::before {
+  -webkit-transform: translateX(1.625rem);
+  -ms-transform: translateX(1.625rem);
+  transform: translateX(1.625rem);
+}
+
+p{
+  display: inline;
 }
 
 /* Toggle button end */
