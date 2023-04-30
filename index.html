@@ -11,48 +11,110 @@
       rel="stylesheet"
     />
     <title>Dog Nutrition Calculator</title>
-    <script src="app.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/dog.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- Main component -->
     <main>
       <div class="container">
-        <img class="grey_container" src="/images/action 4 Preservation (2).svg" alt="">
-              <div id="main_component">
+        <img
+          class="grey_container"
+          src="/images/action 4 Preservation (2).svg"
+          alt=""
+        />
+        <div id="main_component">
           <h1>Dog Nutrition Calculator</h1>
           <form>
             <fieldset class="manual_input">
               <label for="dogBreed">Breed:</label>
-              <input type="text" id="dogBreed" onfocus="this.value=''" value="Type Your Dogs Breed" />
+              <input
+                type="text"
+                id="dogBreed"
+                onfocus="this.value=''"
+                value="Type Your Dogs Breed"
+                required
+              />
               <label for="dogWeight">Weight:</label>
-              <p>kgs</p> 
-              <label class="toggle">
-                  <input type="checkbox">
-                  <span class="toggle_switch"></span>
-                </label>
-              </span>
-              <p>lbs</p>
-              <input type="text" value="Weight" onfocus="this.value=''" />
+
+              <input
+                type="text"
+                id="dogWeight"
+                value="Weight in Kgs"
+                onfocus="this.value=''"
+                required
+              />
               <label for="dogsAge">Age:</label>
-              <input type="text" id="dogAge" value="Age in years" onfocus="this.value=''"/>
+              <input
+                type="text"
+                id="dogAge"
+                value="Age in years"
+                onfocus="this.value=''"
+                required
+              />
+              <label class="life_stage_factor" for="lifeStage"
+                >Is your dog:</label
+              >
+              <input list="stages" name="stages" id="stage" />
+              <datalist id="stages">
+                <option value="Adult"></option>
+                <option value="Growing puppy"></option>
+                <option value="Pregnant/Lactating"></option>
+              </datalist>
             </fieldset>
             <fieldset class="radio">
-              <label class="dog_activity" for="dogActivity">Activity level:</label>
+              <label class="dog_activity" for="dogActivity" id="activityLevel"
+                >Activity level:
+                <a href="">
+                  <img src="/images/question.png" alt="question mark" />
+                </a>
+              </label>
+              <span class="activity_explanation">
+                <p>
+                  The activity levels required by your dog depends on its breed.
+                  For example, low energy dogs such as giant breed dogs (e.g:
+                  Great Dane) or brachycephalic (e.g: French Bulldog), naturally
+                  require less activity than high energy dogs such as herding
+                  breed dogs (e.g: Border Collie). So, if you have a Border
+                  Collie that gets 30 minutes of exercise a day, this would be
+                  considered light activity level. But 30 minutes of activity
+                  for a French Bulldog would be considered medium!<br />
+                  Consider your dog's breed when selecting activity level!
+                  <br />
+                  <br />
+                  General guideline:<br />
+                  Low activity: 0-60min. <br />
+                  Medium activity: 60-90min.<br />
+                  High activity: 90min+.
+                </p>
+              </span>
+
               <span class="radio_input">
-                <input type="radio" id="ligt" value="light" name="activity"/>
+                <input type="radio" id="ligt" value="light" name="activity" />
                 <label for="light">Light</label>
-                <input type="radio" id="medium" value="medium" name="activity"/>
+                <input
+                  type="radio"
+                  id="medium"
+                  value="medium"
+                  name="activity"
+                />
                 <label for="medium">Medium</label>
-                <input type="radio" id="high" value="high" name="activity"/>
+                <input type="radio" id="high" value="high" name="activity" />
                 <label for="high">High</label>
               </span>
             </fieldset>
             <button id="submit" type="submit">Submit</button>
           </form>
         </div>
-        <img class="dog_image" src="/images/dog.svg" alt="">
+        <img
+          class="dog_image"
+          src="/images/dog.svg"
+          alt="Picture of a French Bulldog"
+        />
       </div>
     </main>
+
+    <div class="modal"></div>
+    <script src="app.js"></script>
   </body>
 </html>

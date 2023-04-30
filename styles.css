@@ -1,11 +1,13 @@
 :root {
   --main-color: hsl(37, 97%, 63%);
-  --component-color: hsl(193, 39%, 95%);
+  --component-color: hsl(192, 38%, 95%);
+  --button-color: hsl(217, 97%, 63%);
 }
 
 html {
   box-sizing: border-box;
   font-size: 100%;
+  font-family: Roboto, sans-serif;
 }
 
 *,
@@ -48,26 +50,27 @@ body {
 /*Main component*/
 
 #main_component {
-  background-color: var(--component-color);
   display: flex;
   flex-direction: column;
-  border: 1rem;
-  border-radius: 1rem;
+  /* From https://css.glass */
+  background: rgba(62, 66, 77, 0.8);
+  border-radius: 16px;
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
   min-height: 80vh;
   padding: 0.625rem;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
   font-size: 1.5rem;
   padding: 20px 0 25px;
+  color: hsl(192, 38%, 95%);
 }
 
-
-button {
-  padding: 5px;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: darkcyan;
+input {
+  cursor: pointer;
+  margin-bottom: 1.5625rem;
 }
 
 /* Breed, Weight Age section */
@@ -86,68 +89,46 @@ button {
   max-width: max-content;
   border: none;
   border-radius: 0.5rem;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-
-/* Toggle button start. reference:  https://www.w3schools.com/howto/howto_css_switch.asp*/
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 3.75rem;
-  height: 2.125rem;
-}
-
-/* Hiding default checkbox */
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle_switch {
-  position: absolute;
-  cursor: pointer;
-  top:0;
-  left: 0;
-  right:0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.toggle_switch::before{
-position: absolute;
-content: "";
-height: 1.625rem;
-width: 1.625rem;
-left: .25rem;
-bottom: .25rem;
-background-color: white;
--webkit-transition: .4s;
-transition: .4s;
-}
-
-input:checked + .toggle_switch {
-  background-color: var(--main-color);
-}
-
-input:focus + .toggle_switch{
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .toggle_switch::before {
-  -webkit-transform: translateX(1.625rem);
-  -ms-transform: translateX(1.625rem);
-  transform: translateX(1.625rem);
-}
-
-p{
-  display: inline;
-}
-
-/* Toggle button end */
 
 /*Radio section*/
+
+.activity_explanation {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: fit-content;
+  background-color: #afb0b3;
+  border: none;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.activity_explanation p {
+  padding: 0.9375rem;
+  line-height: 1.2rem;
+  font-size: small;
+}
+
+a {
+  pointer-events: none;
+  position: absolute;
+  right: 9rem;
+}
+
+a img {
+  width: 1rem;
+}
+
+a:hover + .activity_explanation {
+  padding: 10px;
+  display: block;
+  z-index: 1;
+  opacity: 1;
+}
 
 .radio {
   display: flex;
@@ -162,6 +143,41 @@ p{
   font-weight: 600;
 }
 
+button {
+  margin-top: 2rem;
+  width: 7.5rem;
+  height: 2.5rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: var(--button-color);
+  box-shadow: 0px 15px 20px #73a7fa;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.modal {
+  display: none;
+  /* https: ; //www.w3schools.com/howto/howto_css_modals.asp */
+}
+
+.modal .modalActivated {
+  display: visible;
+  background-color: black;
+  width: 80vh;
+}
 
 /*For desktop*/
 
@@ -179,12 +195,15 @@ p{
   #main_component {
     position: absolute;
     display: flex;
-    background-color: var(--component-color);
-    border: 1rem;
-    border-radius: 1rem;
     min-height: 70vh;
     top: 10%;
     margin-right: 30rem;
+    /* From https://css.glass */
+    background: rgba(198, 195, 195, 0.52);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.3px);
+    -webkit-backdrop-filter: blur(9.3px);
   }
 
   .container .dog_image {
