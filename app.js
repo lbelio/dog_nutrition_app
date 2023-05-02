@@ -1,14 +1,37 @@
 // Dog breed selector
 
 const breedApiUrl = "https://api.thedogapi.com/v1/breeds";
-const apiKey =
-  "live_4atmgORNWxUZUQaK0V2KGt3AkyxjisK9TXDVhqSbRvoxWyezCu7blzvxtA97e4JE";
+const headers = {
+  "x-api-key":
+    "live_4atmgORNWxUZUQaK0V2KGt3AkyxjisK9TXDVhqSbRvoxWyezCu7blzvxtA97e4JE",
+};
 
-const breedSelect = document.getElementById("dogBreed");
+//Dog breed input field.
+const breedInput = document.getElementById("dogBreed");
+const breedSuggestions = document.getElementById("breedSuggestions");
+
+//Execute function on keyup
+
+breedInput.addEventListener("keyup", () => {
+  const breedUserInput = breedInput.value;
+});
+
+async function getBreeds() {
+  try {
+    const response = await fetch(breedApiUrl, { headers });
+    const data = await response.json();
+    //add autosuggest code here
+  } catch (error) {
+    console.log(error);
+  }
+}
+const breedFetch = fetch("https://api.thedogapi.com/v1/breeds");
+
+//Dog weight user input
 
 function dogWeight() {
-  const userWeightInput = document.getElementById("dogWeight");
-  const data = userWeightInput.value;
+  const dogWeightInput = document.getElementById("dogWeight");
+  const data = dogWeightInput.value;
 }
 
 //const = dailyCalories = RER * life stage factor * activity factor
