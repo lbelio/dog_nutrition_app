@@ -20,7 +20,9 @@ async function getBreeds() {
   try {
     const response = await fetch(breedApiUrl, { headers });
     const data = await response.json();
-    //add autosuggest code here
+    if (breedUserInput.length > 2) {
+    }
+    //funtion here
   } catch (error) {
     console.log(error);
   }
