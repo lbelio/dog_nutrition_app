@@ -10,6 +10,7 @@ html {
   font-family: Roboto, sans-serif;
 }
 
+
 *,
 *::before,
 *::after {
@@ -62,9 +63,6 @@ body {
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
 }
 
-#breedSuggestions {
-}
-
 h1 {
   font-size: 1.5rem;
   padding: 20px 0 25px;
@@ -91,8 +89,30 @@ input {
   padding: 0.3125rem;
   max-width: max-content;
   border: none;
-  border-radius: 0.5rem;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.manual_input:focus {
+  border: solid 2px black;
+}
+
+/* Autosuggest box */
+
+ #breedSuggestions {
+display: inline-block;
+}
+
+ul {
+  list-style: none;
+ }
+
+.list {
+  width: 100%;
+  background-color: white;
+}
+
+.list-items {
+  padding: 10px 5px;
 }
 
 /*Radio section*/
@@ -116,17 +136,17 @@ input {
   font-size: small;
 }
 
-a {
-  pointer-events: none;
+.activity_explanation {
   position: absolute;
   right: 9rem;
+  z-index: 100;
 }
 
-a img {
+.explanation_modal {
   width: 1rem;
 }
 
-a:hover + .activity_explanation {
+.explanation_modal:hover + .activity_explanation {
   padding: 10px;
   display: block;
   z-index: 1;
@@ -145,6 +165,8 @@ a:hover + .activity_explanation {
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+/* submit button */
 
 button {
   margin-top: 2rem;
