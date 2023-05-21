@@ -10,7 +10,6 @@ html {
   font-family: Roboto, sans-serif;
 }
 
-
 *,
 *::before,
 *::after {
@@ -98,36 +97,59 @@ input {
 
 /* Autosuggest box */
 
- #breedSuggestions {
-display: inline-block;
-}
-
-ul {
-  list-style: none;
- }
-
 .list {
   width: 100%;
   background-color: white;
+  list-style: none;
+  padding: 1px;
+  position: absolute;
+  top: 9.65rem;
+  max-width: 13.75rem;
+  border: none;
 }
 
 .list-items {
-  padding: 10px 5px;
+  padding: 10px 2px;
+  border: 0.5px solid #d4d4d4;
 }
+
+.list-items:hover {
+  background-color: #f4cd91;;
+}
+
 
 /*Radio section*/
 
+.questionmark_container {
+  position:relative;
+  display: inline-block
+  
+} 
+.questionmark {
+  width: 1rem;
+  cursor: help;
+}
+
 .activity_explanation {
-  display: none;
+display: none;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: fit-content;
-  background-color: #afb0b3;
-  border: none;
-  border-radius: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s;
+  width: 300px;
+  background-color: var(--main-color);
+  border: 1px solid #c58b1f;
+  padding: 10px;
+  top: -20rem;
+  right: -7rem;
+  box-shadow: #171616 20px 20px 30px;
+}
+
+.activity_explanation::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10.625rem;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--main-color) transparent transparent transparent;;
 }
 
 .activity_explanation p {
@@ -136,21 +158,10 @@ ul {
   font-size: small;
 }
 
-.activity_explanation {
-  position: absolute;
-  right: 9rem;
-  z-index: 100;
-}
-
-.explanation_modal {
-  width: 1rem;
-}
-
-.explanation_modal:hover + .activity_explanation {
-  padding: 10px;
+.questionmark_container:hover .activity_explanation {
   display: block;
-  z-index: 1;
-  opacity: 1;
+  z-index: 100;
+
 }
 
 .radio {

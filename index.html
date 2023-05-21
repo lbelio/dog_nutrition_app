@@ -43,7 +43,7 @@
               <input
                 type="text"
                 id="dogWeight"
-                place="Weight in Kgs"
+                placeholder="Weight in Kgs"
                 onfocus="this.value=''"
                 required
               />
@@ -58,41 +58,41 @@
               <label class="life_stage_factor" for="lifeStage">
                 Is your dog:
               </label>
-              <input list="stages" name="stages" id="stage" />
+              <input list="stages" name="stages" id="stage" placeholder="Select one option"/>
               <datalist id="stages">
                 <option value="Adult"></option>
                 <option value="Growing puppy"></option>
                 <option value="Pregnant/Lactating"></option>
+                <option value="Senior"></option>
               </datalist>
             </fieldset>
             <fieldset class="radio">
               <label class="dog_activity" for="dogActivity" id="activityLevel"
                 >Activity level:
+                <div class="questionmark_container">
                 <img
-                  class="explanation_modal"
+                  class="questionmark"
                   src="/images/question.png"
                   alt="question mark"
                 />
+                <span class="activity_explanation">
+                  <p>
+              
+  Activity levels for dogs vary based on breed. 
+  Low energy dogs like Great Danes or French Bulldogs require less 
+  activity compared to high energy dogs like Border Collies. Adjust 
+  the activity level based on your dog's breed.
+  <br />
+                    <br />
+                    General guidelines:<br />
+                    Low activity: 0-60min. <br />
+                    Medium activity: 60-90min.<br />
+                    High activity: 90min+.
+                  </p>
+                </span>
+                </div>
               </label>
-              <span class="activity_explanation">
-                <p>
-                  The activity levels required by your dog depends on its breed.
-                  For example, low energy dogs such as giant breed dogs (e.g:
-                  Great Dane) or brachycephalic (e.g: French Bulldog), naturally
-                  require less activity than high energy dogs such as herding
-                  breed dogs (e.g: Border Collie). So, if you have a Border
-                  Collie that gets 30 minutes of exercise a day, this would be
-                  considered light activity level. But 30 minutes of activity
-                  for a French Bulldog would be considered medium!<br />
-                  Consider your dog's breed when selecting activity level!
-                  <br />
-                  <br />
-                  General guideline:<br />
-                  Low activity: 0-60min. <br />
-                  Medium activity: 60-90min.<br />
-                  High activity: 90min+.
-                </p>
-              </span>
+             
 
               <span class="radio_input">
                 <input type="radio" id="ligt" value="light" name="activity" />
@@ -119,9 +119,8 @@
       </div>
     </main>
 
-    <div class="modal">
-      <div class="infoBox"><p>Here are the details:</p></div>
-    </div>
+
+   
     <script src="app.js"></script>
   </body>
 </html>
