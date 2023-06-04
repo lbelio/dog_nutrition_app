@@ -1,6 +1,5 @@
 :root {
-  --main-color: hsl(37, 97%, 63%);
-  --component-color: hsl(192, 38%, 95%);
+  --main-color: #fcb645;
   --button-color: hsl(217, 97%, 63%);
 }
 
@@ -19,7 +18,10 @@ html {
 }
 
 body {
-  background-color: var(--main-color);
+  background: linear-gradient(
+    rgba(250, 172, 56, 0.962),
+    rgba(252, 90, 69, 0.928)
+  );
   min-height: 100vh;
   margin: 0;
   line-height: 1;
@@ -41,9 +43,9 @@ body {
 
 .container .dog_image {
   position: absolute;
-  top: 70%;
+  top: 67%;
   width: 50%;
-  left: 50%;
+  left: 70%;
   transform: rotateY(180deg);
 }
 
@@ -53,11 +55,11 @@ body {
   display: flex;
   flex-direction: column;
   /* From https://css.glass */
-  background: rgba(62, 66, 77, 0.8);
+  background: rgba(198, 195, 195, 0.52);
   border-radius: 16px;
   backdrop-filter: blur(9.3px);
   -webkit-backdrop-filter: blur(9.3px);
-  min-height: 80vh;
+  min-height: 65vh;
   padding: 0.625rem;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
 }
@@ -66,6 +68,7 @@ h1 {
   font-size: 1.5rem;
   padding: 20px 0 25px;
   color: hsl(192, 38%, 95%);
+  text-shadow: 2px 1px black;
 }
 
 input {
@@ -103,8 +106,8 @@ input {
   list-style: none;
   padding: 1px;
   position: absolute;
-  top: 9.65rem;
-  max-width: 13.75rem;
+  top: 9.6rem;
+  max-width: 12.72rem;
   border: none;
 }
 
@@ -114,28 +117,29 @@ input {
 }
 
 .list-items:hover {
-  background-color: #f4cd91;;
+  background-color: #f4cd91;
 }
-
 
 /*Radio section*/
 
 .questionmark_container {
-  position:relative;
-  display: inline-block
-  
-} 
+  position: relative;
+  display: inline-block;
+}
 .questionmark {
   width: 1rem;
   cursor: help;
 }
 
+/*Activity explanation popup */
+
 .activity_explanation {
-display: none;
+  display: none;
   position: absolute;
   width: 300px;
   background-color: var(--main-color);
   border: 1px solid #c58b1f;
+  border-radius: 0.5rem;
   padding: 10px;
   top: -20rem;
   right: -7rem;
@@ -149,19 +153,19 @@ display: none;
   left: 10.625rem;
   border-width: 10px;
   border-style: solid;
-  border-color: var(--main-color) transparent transparent transparent;;
+  border-color: var(--main-color) transparent transparent transparent;
 }
 
 .activity_explanation p {
   padding: 0.9375rem;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
   font-size: small;
+  color: #171616;
 }
 
 .questionmark_container:hover .activity_explanation {
   display: block;
   z-index: 100;
-
 }
 
 .radio {
@@ -179,8 +183,8 @@ display: none;
 
 /* submit button */
 
-button {
-  margin-top: 2rem;
+#submit {
+  margin-top: 3rem;
   width: 7.5rem;
   height: 2.5rem;
   font-size: 12px;
@@ -197,22 +201,74 @@ button {
   outline: none;
 }
 
-button:hover {
+#submit:hover {
   background-color: var(--button-color);
   box-shadow: 0px 15px 20px #73a7fa;
   color: #fff;
   transform: translateY(-7px);
 }
 
+/*modal */
+
 .modal {
-  display: none;
-  /* https: ; //www.w3schools.com/howto/howto_css_modals.asp */
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  min-height: 80vh;
+  min-width: 38ch;
+  padding: 1em;
+  border: 0;
+  box-shadow: 2rem 3rem 4rem rgba(0, 0, 0, 0.7);
+  background-color: #2f323aaf;
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border-radius: 1rem;
 }
 
-.modal .modalActivated {
-  display: visible;
-  background-color: black;
-  width: 80vh;
+h2 {
+  font-size: large;
+  margin-bottom: 10px;
+  color: #e8e8e8;
+}
+
+.pet_details {
+  border-bottom: solid 2px #deb887;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #e8e8e8;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: large;
+  color: #e2cca6;
+}
+
+.modal::backdrop {
+  background-image: url(/images/dog_paw_print_black2-1556133593\ copy.svg),
+    linear-gradient(rgba(250, 172, 56, 0.962), rgba(252, 90, 69, 0.928));
+  background-repeat: repeat;
+  background-size: 70px;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 50%;
+}
+
+.modalCloseButton:hover {
+  background-color: #ccc;
 }
 
 /*For desktop*/
@@ -231,7 +287,7 @@ button:hover {
   #main_component {
     position: absolute;
     display: flex;
-    min-height: 70vh;
+    min-height: 65vh;
     top: 10%;
     margin-right: 30rem;
     /* From https://css.glass */
@@ -244,9 +300,20 @@ button:hover {
 
   .container .dog_image {
     position: absolute;
-    top: 10%;
+    top: 7%;
     width: 45%;
     left: 50%;
     transform: rotateY(180deg);
+  }
+
+  .modal {
+    max-width: 60ch;
+  }
+
+  .modal::backdrop {
+    background-image: url(/images/dog_paw_print_black2-1556133593\ copy.svg),
+      linear-gradient(rgba(250, 172, 56, 0.962), rgba(252, 90, 69, 0.928));
+    background-repeat: repeat;
+    background-size: 90px;
   }
 }

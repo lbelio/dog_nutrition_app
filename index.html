@@ -28,17 +28,17 @@
           <form autocomplete="off">
             <fieldset class="manual_input">
               <label for="dogBreed">Breed:</label>
-              
-                <input
-                  type="text"
-                  id="dogBreed"
-                  placeholder="Type Your Dogs Breed"
-                  required
-                />
-              
+
+              <input
+                type="text"
+                id="dogBreed"
+                placeholder="Type Your Dogs Breed"
+                required
+              />
+
               <ul class="list"></ul>
 
-              <label for="dogWeight">Weight:</label>
+              <label for="dogWeight">Weight(kg):</label>
 
               <input
                 type="text"
@@ -47,22 +47,20 @@
                 onfocus="this.value=''"
                 required
               />
-              <label for="dogsAge">Age:</label>
-              <input
-                type="text"
-                id="dogAge"
-                placeholder="Age in years"
-                onfocus="this.value=''"
-                required
-              />
+
               <label class="life_stage_factor" for="lifeStage">
                 Is your dog:
               </label>
-              <input list="stages" name="stages" id="stage" placeholder="Select one option"/>
+              <input
+                list="stages"
+                name="stages"
+                id="stage"
+                placeholder="Select one option"
+              />
               <datalist id="stages">
                 <option value="Adult"></option>
-                <option value="Growing puppy"></option>
-                <option value="Pregnant/Lactating"></option>
+                <option value="Puppy"></option>
+                <option value="Pregnant"></option>
                 <option value="Senior"></option>
               </datalist>
             </fieldset>
@@ -70,29 +68,28 @@
               <label class="dog_activity" for="dogActivity" id="activityLevel"
                 >Activity level:
                 <div class="questionmark_container">
-                <img
-                  class="questionmark"
-                  src="/images/question.png"
-                  alt="question mark"
-                />
-                <span class="activity_explanation">
-                  <p>
-              
-  Activity levels for dogs vary based on breed. 
-  Low energy dogs like Great Danes or French Bulldogs require less 
-  activity compared to high energy dogs like Border Collies. Adjust 
-  the activity level based on your dog's breed.
-  <br />
-                    <br />
-                    General guidelines:<br />
-                    Low activity: 0-60min. <br />
-                    Medium activity: 60-90min.<br />
-                    High activity: 90min+.
-                  </p>
-                </span>
+                  <img
+                    class="questionmark"
+                    src="/images/question.png"
+                    alt="question mark"
+                  />
+                  <span class="activity_explanation">
+                    <p>
+                      Activity levels for dogs vary based on breed. Low energy
+                      dogs like Great Danes or French Bulldogs require less
+                      activity compared to high energy dogs like Border Collies.
+                      Adjust the activity level based on your dog's breed.
+
+                      <br />
+                      <br />
+                      General guidelines:<br />
+                      Low activity: 0-60min. <br />
+                      Medium activity: 60-90min.<br />
+                      High activity: 90min+.
+                    </p>
+                  </span>
                 </div>
               </label>
-             
 
               <span class="radio_input">
                 <input type="radio" id="ligt" value="light" name="activity" />
@@ -119,8 +116,40 @@
       </div>
     </main>
 
+    <dialog class="modal" id="modal">
+      <button class="modalCloseButton" id="closeButton">X</button>
+      <h1>Nutrition result!</h1>
+      <div class="pet_details">
+        <h2>Breed: <span id="resultBreed"></span></h2>
+        <h2>Weight: <span id="resultWeight"></span>kg</h2>
+        <h2>Activity level: <span id="activityResult"></span></h2>
+      </div>
+      <p class="modal_text">
+        Based on the information provided, here are the results for your dog's
+        nutrition:
+      </p>
+      <h3>1. Resting Energy Requirement:</h3>
+      <p>
+        The RER is the minimum number of calories your dog needs to maintain
+        basic bodily functions at rest. Your dog's minimum calory requirement
+        is: <span id="minCal"></span>
+      </p>
+      <h3>2. Daily Calorie Needs:</h3>
+      <p>
+        Taking into account your dog's activity level, the estimated daily
+        calorie needs are as follows:
+        <span id="dailyCal"></span>
+      </p>
 
-   
+      <p>
+        Remember that these calculations serve as general guidelines. Factors
+        such as age, health conditions, and metabolism can influence your dog's
+        actual calorie needs. It is always advisable to consult with a
+        veterinarian to determine the most appropriate diet and feeding plan for
+        your dog.
+      </p>
+    </dialog>
+
     <script src="app.js"></script>
   </body>
 </html>
