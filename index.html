@@ -56,6 +56,7 @@
                 name="stages"
                 id="stage"
                 placeholder="Select one option"
+                autocomplete="off"
               />
               <datalist id="stages">
                 <option value="Adult"></option>
@@ -124,21 +125,18 @@
         <h2>Weight: <span id="resultWeight"></span>kg</h2>
         <h2>Activity level: <span id="activityResult"></span></h2>
       </div>
-      <p class="modal_text">
-        Based on the information provided, here are the results for your dog's
-        nutrition:
-      </p>
+
       <h3>1. Resting Energy Requirement:</h3>
       <p>
         The RER is the minimum number of calories your dog needs to maintain
         basic bodily functions at rest. Your dog's minimum calory requirement
-        is: <span id="minCal"></span>
+        is: <span id="minCal"></span>kcal
       </p>
       <h3>2. Daily Calorie Needs:</h3>
-      <p>
+      <p class="daily_Cals_Paragraph">
         Taking into account your dog's activity level, the estimated daily
         calorie needs are as follows:
-        <span id="dailyCal"></span>
+        <span id="dailyCal"></span>kcal
       </p>
 
       <p>
@@ -149,7 +147,6 @@
         your dog.
       </p>
     </dialog>
-
-    <script src="app.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>

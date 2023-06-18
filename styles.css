@@ -22,7 +22,7 @@ body {
     rgba(250, 172, 56, 0.962),
     rgba(252, 90, 69, 0.928)
   );
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   line-height: 1;
   font-family: "Roboto Mono", monospace;
@@ -33,7 +33,6 @@ body {
 /*Background and images*/
 .container {
   position: relative;
-  display: flex;
 }
 
 .grey_container {
@@ -43,10 +42,11 @@ body {
 
 .container .dog_image {
   position: absolute;
-  top: 67%;
-  width: 50%;
-  left: 70%;
+  top: 70%;
+  width: 40%;
+  left: 60%;
   transform: rotateY(180deg);
+  overflow: hidden;
 }
 
 /*Main component*/
@@ -55,18 +55,18 @@ body {
   display: flex;
   flex-direction: column;
   /* From https://css.glass */
-  background: rgba(198, 195, 195, 0.52);
+  background: rgba(92, 91, 91, 0.618);
   border-radius: 16px;
   backdrop-filter: blur(9.3px);
   -webkit-backdrop-filter: blur(9.3px);
-  min-height: 65vh;
+  height: 75svh;
   padding: 0.625rem;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
   font-size: 1.5rem;
-  padding: 20px 0 25px;
+  padding: 20px 0 30px;
   color: hsl(192, 38%, 95%);
   text-shadow: 2px 1px black;
 }
@@ -106,18 +106,15 @@ input {
   list-style: none;
   padding: 1px;
   position: absolute;
-  top: 9.6rem;
-  max-width: 12.72rem;
+  top: 9.9rem;
+  max-width: 12.6rem;
   border: none;
+  z-index: 200;
 }
 
 .list-items {
   padding: 10px 2px;
   border: 0.5px solid #d4d4d4;
-}
-
-.list-items:hover {
-  background-color: #f4cd91;
 }
 
 /*Radio section*/
@@ -141,9 +138,10 @@ input {
   border: 1px solid #c58b1f;
   border-radius: 0.5rem;
   padding: 10px;
-  top: -20rem;
+  top: -23rem;
   right: -7rem;
   box-shadow: #171616 20px 20px 30px;
+  z-index: 500;
 }
 
 .activity_explanation::before {
@@ -157,15 +155,10 @@ input {
 }
 
 .activity_explanation p {
-  padding: 0.9375rem;
+  padding: 0.7rem;
   line-height: 1.5rem;
   font-size: small;
   color: #171616;
-}
-
-.questionmark_container:hover .activity_explanation {
-  display: block;
-  z-index: 100;
 }
 
 .radio {
@@ -201,7 +194,7 @@ input {
   outline: none;
 }
 
-#submit:hover {
+.clicked {
   background-color: var(--button-color);
   box-shadow: 0px 15px 20px #73a7fa;
   color: #fff;
@@ -215,7 +208,7 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
-  min-height: 80vh;
+  min-height: 80svh;
   min-width: 38ch;
   padding: 1em;
   border: 0;
@@ -233,18 +226,25 @@ h2 {
 }
 
 .pet_details {
-  border-bottom: solid 2px #deb887;
-  margin-bottom: 20px;
+  border-bottom: solid 2px rgba(252, 90, 69, 0.928);
+  margin-bottom: 1rem;
 }
 
-p {
+.modal p {
   color: #e8e8e8;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
+  line-height: 1.2;
 }
 
 h3 {
   font-size: large;
   color: #e2cca6;
+  margin-bottom: 0.5rem;
+}
+
+.daily_Cals_Paragraph {
+  padding-bottom: 1rem;
+  border-bottom: solid 2px rgba(252, 90, 69, 0.928);
 }
 
 .modal::backdrop {
@@ -271,6 +271,12 @@ h3 {
   background-color: #ccc;
 }
 
+#minCal,
+#dailyCal {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /*For desktop*/
 
 @media (min-width: 768px) {
@@ -287,7 +293,7 @@ h3 {
   #main_component {
     position: absolute;
     display: flex;
-    min-height: 65vh;
+    height: 65vh;
     top: 10%;
     margin-right: 30rem;
     /* From https://css.glass */
@@ -306,8 +312,36 @@ h3 {
     transform: rotateY(180deg);
   }
 
+  .list-items:hover {
+    background-color: #f4cd91;
+  }
+
+  .questionmark_container:hover .activity_explanation {
+    display: block;
+    z-index: 500;
+  }
+
+  #submit:hover {
+    background-color: var(--button-color);
+    box-shadow: 0px 15px 20px #73a7fa;
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .modal h1 {
+    text-align: center;
+    font-size: xx-large;
+    margin-bottom: 2rem;
+    text-shadow: #000 2px 2px;
+  }
+
   .modal {
-    max-width: 60ch;
+    max-width: 70ch;
+    padding: 0 3rem 0 3rem;
+  }
+
+  .modal p {
+    line-height: 1.7rem;
   }
 
   .modal::backdrop {

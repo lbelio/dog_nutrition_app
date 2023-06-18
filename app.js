@@ -1,4 +1,4 @@
-document.addEventListener("DomContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // API
 
   const breedApiUrl = "https://api.thedogapi.com/v1/breeds/";
@@ -12,10 +12,6 @@ document.addEventListener("DomContentLoaded", () => {
   const dogWeightInput = document.getElementById("dogWeight");
   const lifestageInput = document.getElementById("stage");
 
-  //Execute autosuggest on keyup
-
-  breedInput.addEventListener("keyup", getBreeds);
-
   //Breed API access and autosuggest function
 
   async function getBreeds() {
@@ -26,35 +22,39 @@ document.addEventListener("DomContentLoaded", () => {
       }
       const data = await response.json();
 
-      breedInput.addEventListener("keyup", (e) => {
-        let breedUserInput = breedInput.value.trim().toLowerCase();
-        let suggestionList = document.querySelector(".list");
-        suggestionList.innerHTML = "";
-        if (breedUserInput.length > 0) {
-          let matchingBreeds = data.filter((breed) =>
-            breed.name.toLowerCase().startsWith(breedUserInput)
-          );
-          let breedNames = matchingBreeds.map((breed) => breed.name);
-          breedNames.forEach((name) => {
-            let listItem = document.createElement("li");
-            listItem.classList.add("list-items");
-            listItem.style.cursor = "pointer";
-            listItem.textContent = name;
+      let breedUserInput = breedInput.value.trim().toLowerCase();
+      let suggestionList = document.querySelector(".list");
+      suggestionList.innerHTML = "";
+      if (breedUserInput.length > 0) {
+        let matchingBreeds = data.filter((breed) =>
+          breed.name.toLowerCase().startsWith(breedUserInput)
+        );
+        let breedNames = matchingBreeds.map((breed) => breed.name);
+        breedNames.forEach((name) => {
+          let listItem = document.createElement("li");
+          listItem.classList.add("list-items");
+          listItem.style.cursor = "pointer";
+          listItem.textContent = name;
+          console.log(name);
 
-            listItem.addEventListener("click", () => {
-              breedInput.value = name;
-              suggestionList.innerHTML = "";
-              breedResult.textContent = name;
-              console.log(name);
-            });
-            suggestionList.appendChild(listItem);
+          listItem.addEventListener("click", () => {
+            breedInput.value = name;
+            suggestionList.innerHTML = "";
+            breedResult.textContent = name;
+            console.log(name);
           });
-        }
-      });
+          suggestionList.appendChild(listItem);
+        });
+
+        suggestionList.style.maxHeight = "300px";
+        suggestionList.style.overflowY = "auto";
+      }
     } catch (error) {
-      console.log("error");
+      console.error("Failed to fetch breed data:", error);
     }
   }
+
+  breedInput.addEventListener("keyup", getBreeds);
 
   //Determining lifestage factor
 
@@ -121,10 +121,20 @@ document.addEventListener("DomContentLoaded", () => {
   const dailyCalResult = document.getElementById("dailyCal");
 
   submitButton.addEventListener("click", () => {
+    if (breedInput.value.trim() === "") {
+      alert("Please select the dog's breed");
+      return;
+    }
+
     let weight = parseInt(dogWeightInput.value);
+
+    if (isNaN(weight) || weight <= 0) {
+      alert("Please enter a valid weight");
+      return;
+    }
+
     let RER = calculateRER(weight);
     let lifestageFactor = getLifestageFactor();
-    console.log(lifestageFactor);
     let activityLevel = calculateActivityFactor();
     let dailyCalorieNeeds = calculateMinCalorieNeeds(
       RER,
@@ -143,4 +153,35 @@ document.addEventListener("DomContentLoaded", () => {
   closeButton.addEventListener("click", () => {
     modal.close();
   });
+});
+
+//KEYBOARD functionalities
+
+// close the list if the user clicks outside input or escape btn
+
+document.addEventListener("click", (e) => {
+  const target = e.target;
+  if (target !== breedInput && !target.closest(".list")) {
+    closeList();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeList();
+  }
+});
+
+function closeList() {
+  const suggestionList = document.querySelector(".list");
+  suggestionList.innerHTML = "";
+}
+
+//mobile functions
+
+const questionmark = document.querySelector(".questionmark_container");
+const activityExplanation = document.querySelector(".activity_explanation");
+questionmark.addEventListener("click", () => {
+  activityExplanation.style.display =
+    activityExplanation.style.display === "none" ? "block" : "none";
 });

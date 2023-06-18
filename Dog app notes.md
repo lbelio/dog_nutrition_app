@@ -25,3 +25,13 @@ chose to do this with vanilla css, js before i move onto frameworks in the next 
 
 
 hard bits: most frustrating thing was not knowing what i dont know. I'd have to do extra research to find simple solutions to things simply because i wasnt aware of some functionalities. for example: i didnt know that pointer: help exists or 
+
+
+
+30/05/23
+
+Starting with modal. used https://www.youtube.com/watch?v=TAB_v6yBXIE as reference.
+
+calculation references: https://www.aaha.org/globalassets/02-guidelines/2021-nutrition-and-weight-management/resourcepdfs/nutritiongl_box1.pdf
+
+https://www.todaysveterinarynurse.com/nutrition/veterinary-energy-calculations-and-proper-caloric-intake/
