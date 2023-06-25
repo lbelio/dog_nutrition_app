@@ -185,3 +185,20 @@ questionmark.addEventListener("click", () => {
   activityExplanation.style.display =
     activityExplanation.style.display === "none" ? "block" : "none";
 });
+
+const initialViewportHeight = window.visualViewport.height;
+
+// Listen for changes in the visual viewport size
+window.visualViewport.addEventListener("resize", () => {
+  // Calculate the difference between the initial height and the current height
+  const heightDifference = initialViewportHeight - window.visualViewport.height;
+
+  // Check if the height difference is greater than a certain threshold (e.g., 100 pixels)
+  if (heightDifference > 100) {
+    // Apply a CSS class to the body element to add padding at the bottom
+    document.body.classList.add("keyboard-open");
+  } else {
+    // Remove the CSS class if the height difference is smaller
+    document.body.classList.remove("keyboard-open");
+  }
+});
