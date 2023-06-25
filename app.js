@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (lifestage === "Puppy") {
       lifestageFactor = 2.5;
     } else if (lifestage === "Pregnant") {
-      lifestageFactor = 4.5;
+      lifestageFactor = 1.8;
     } else if (lifestage === "Senior") {
-      lifestageFactor = 1.1;
+      lifestageFactor = 0.8;
     } else {
-      lifestageFactor = 1.5;
+      lifestageFactor = 1.0;
     }
     return lifestageFactor;
   };
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (selectedActivityLevel === "medium") {
       activityLevel = 1.4;
     } else if (selectedActivityLevel === "high") {
-      activityLevel = 1.6;
+      activityLevel = 2.0;
     }
     return activityLevel;
   };
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   calculateMinCalorieNeeds = (RER, lifestageFactor, activityLevel) => {
-    return Math.round(RER * lifestageFactor * activityLevel);
+    return Math.round(RER * (lifestageFactor + activityLevel));
   };
 
   //Modal
@@ -184,21 +184,4 @@ const activityExplanation = document.querySelector(".activity_explanation");
 questionmark.addEventListener("click", () => {
   activityExplanation.style.display =
     activityExplanation.style.display === "none" ? "block" : "none";
-});
-
-const initialViewportHeight = window.visualViewport.height;
-
-// Listen for changes in the visual viewport size
-window.visualViewport.addEventListener("resize", () => {
-  // Calculate the difference between the initial height and the current height
-  const heightDifference = initialViewportHeight - window.visualViewport.height;
-
-  // Check if the height difference is greater than a certain threshold (e.g., 100 pixels)
-  if (heightDifference > 100) {
-    // Apply a CSS class to the body element to add padding at the bottom
-    document.body.classList.add("keyboard-open");
-  } else {
-    // Remove the CSS class if the height difference is smaller
-    document.body.classList.remove("keyboard-open");
-  }
 });
