@@ -185,3 +185,11 @@ questionmark.addEventListener("click", () => {
   activityExplanation.style.display =
     activityExplanation.style.display === "none" ? "block" : "none";
 });
+
+var inputs = document.querySelectorAll("input");
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener("focus", function (event) {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+  });
+}
