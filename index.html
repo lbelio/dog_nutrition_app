@@ -1,153 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&family=Roboto+Mono&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&family=Roboto+Mono&display=swap"
+            rel="stylesheet"
     />
     <title>Dog Nutrition Calculator</title>
-    <link rel="icon" type="image/x-icon" href="/images/dog.svg" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Main component -->
-    <main>
-      <div class="container">
+    <link rel="icon" type="image/x-icon" href="/images/dog.svg"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<!-- Main component -->
+<main>
+    <div class="container">
         <img
-          class="grey_container"
-          src="/images/action 4 Preservation (2).svg"
-          alt=""
+                class="grey_container"
+                src="/images/action 4 Preservation (2).svg"
+                alt=""
         />
         <div id="main_component">
-          <h1>Dog Nutrition Calculator</h1>
-          <form autocomplete="off">
-            <fieldset class="manual_input">
-              <label for="dogBreed">Breed:</label>
+            <h1>Dog Nutrition Calculator</h1>
+            <form autocomplete="off">
+                <fieldset class="manual_input">
+                    <label for="dogBreed">Breed:</label>
 
-              <input
-                type="text"
-                id="dogBreed"
-                placeholder="Type Your Dogs Breed"
-                required
-              />
+                    <input
+                            type="text"
+                            id="dogBreed"
+                            placeholder="Type Your Dogs Breed"
+                            required
+                    />
 
-              <ul class="list"></ul>
+                    <ul class="list"></ul>
 
-              <label for="dogWeight">Weight(kg):</label>
+                    <label for="dogWeight">Weight(kg):</label>
 
-              <input
-                type="text"
-                id="dogWeight"
-                placeholder="Weight in Kgs"
-                onfocus="this.value=''"
-                required
-              />
+                    <input
+                            type="text"
+                            id="dogWeight"
+                            placeholder="Weight in Kgs"
+                            onfocus="this.value=''"
+                            required
+                    />
 
-              <label class="life_stage_factor" for="lifeStage">
-                Is your dog:
-              </label>
-              <input
-                list="stages"
-                name="stages"
-                id="stage"
-                placeholder="Select one option"
-                autocomplete="off"
-              />
-              <datalist id="stages">
-                <option value="Adult"></option>
-                <option value="Puppy"></option>
-                <option value="Pregnant"></option>
-                <option value="Senior"></option>
-              </datalist>
-            </fieldset>
-            <fieldset class="radio">
-              <label class="dog_activity" for="dogActivity" id="activityLevel"
-                >Activity level:
-                <div class="questionmark_container">
-                  <img
-                    class="questionmark"
-                    src="/images/question.png"
-                    alt="question mark"
-                  />
-                  <span class="activity_explanation">
+                    <label class="life_stage_factor" for="lifeStage">
+                        Is your dog:
+                    </label>
+                    <input
+                            list="stages"
+                            name="stages"
+                            id="stage"
+                            placeholder="Select one option"
+                            autocomplete="off"
+                    />
+                    <datalist id="stages">
+                        <option value="Adult"></option>
+                        <option value="Puppy"></option>
+                        <option value="Pregnant"></option>
+                        <option value="Senior"></option>
+                    </datalist>
+                </fieldset>
+                <fieldset class="radio">
+                    <label class="dog_activity" for="dogActivity" id="activityLevel"
+                    >Activity level:
+                        <div class="questionmark_container">
+                            <img
+                                    class="questionmark"
+                                    src="/images/question.png"
+                                    alt="question mark"
+                            />
+                            <span class="activity_explanation">
                     <p>
                       Activity levels for dogs vary based on breed. Low energy
                       dogs like Great Danes or French Bulldogs require less
                       activity compared to high energy dogs like Border Collies.
                       Adjust the activity level based on your dog's breed.
 
-                      <br />
-                      <br />
-                      General guidelines:<br />
-                      Low activity: 0-60min. <br />
-                      Medium activity: 60-90min.<br />
+                      <br/>
+                      <br/>
+                      General guidelines:<br/>
+                      Low activity: 0-60min. <br/>
+                      Medium activity: 60-90min.<br/>
                       High activity: 90min+.
                     </p>
                   </span>
-                </div>
-              </label>
+                        </div>
+                    </label>
 
-              <span class="radio_input">
-                <input type="radio" id="ligt" value="light" name="activity" />
+                    <span class="radio_input">
+                <input type="radio" id="light" value="light" name="activity"/>
                 <label for="light">Light</label>
                 <input
-                  type="radio"
-                  id="medium"
-                  value="medium"
-                  name="activity"
+                        type="radio"
+                        id="medium"
+                        value="medium"
+                        name="activity"
                 />
                 <label for="medium">Medium</label>
-                <input type="radio" id="high" value="high" name="activity" />
+                <input type="radio" id="high" value="high" name="activity"/>
                 <label for="high">High</label>
               </span>
-            </fieldset>
-            <button id="submit" type="button">Submit</button>
-          </form>
+                </fieldset>
+                <button id="submit" type="button">Submit</button>
+            </form>
         </div>
         <img
-          class="dog_image"
-          src="/images/dog.svg"
-          alt="Picture of a French Bulldog"
+                class="dog_image"
+                src="/images/dog.svg"
+                alt="Picture of a French Bulldog"
         />
-      </div>
-    </main>
+    </div>
+</main>
 
-    <dialog class="modal" id="modal">
-      <button class="modalCloseButton" id="closeButton">X</button>
-      <h1>Nutrition result!</h1>
-      <div class="pet_details">
+<dialog class="modal" id="modal">
+    <button class="modalCloseButton" id="closeButton">X</button>
+    <h1>Nutrition result!</h1>
+    <div class="pet_details">
         <h2>Breed: <span id="resultBreed"></span></h2>
         <h2>Weight: <span id="resultWeight"></span>kg</h2>
         <h2>Activity level: <span id="activityResult"></span></h2>
-      </div>
+    </div>
 
-      <h3>1. Resting Energy Requirement:</h3>
-      <p>
+    <h3>1. Resting Energy Requirement:</h3>
+    <p>
         The RER is the minimum number of calories your dog needs to maintain
         basic bodily functions at rest. Your dog's minimum calory requirement
         is: <span id="minCal"></span>kcal
-      </p>
-      <h3>2. Daily Calorie Needs:</h3>
-      <p class="daily_Cals_Paragraph">
+    </p>
+    <h3>2. Daily Calorie Needs:</h3>
+    <p class="daily_Cals_Paragraph">
         Taking into account your dog's activity level, the estimated daily
         calorie needs are as follows:
         <span id="dailyCal"></span>kcal
-      </p>
+    </p>
 
-      <p>
+    <p>
         Remember that these calculations serve as general guidelines. Factors
         such as age, health conditions, and metabolism can influence your dog's
         actual calorie needs. It is always advisable to consult with a
         veterinarian to determine the most appropriate diet and feeding plan for
         your dog.
-      </p>
-    </dialog>
-    <script src="/app.js"></script>
-  </body>
+    </p>
+</dialog>
+<script src="/app.js"></script>
+</body>
 </html>

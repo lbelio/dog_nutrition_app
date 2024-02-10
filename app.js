@@ -185,20 +185,3 @@ questionmark.addEventListener("click", () => {
   activityExplanation.style.display =
     activityExplanation.style.display === "none" ? "block" : "none";
 });
-var disableScroll = false;
-
-window.addEventListener("touchmove", function (event) {
-  if (disableScroll) {
-    event.preventDefault();
-  }
-});
-
-var inputs = document.querySelectorAll("input");
-for (var i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener("focus", function () {
-    disableScroll = true;
-  });
-  inputs[i].addEventListener("blur", function () {
-    disableScroll = false;
-  });
-}
